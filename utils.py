@@ -9,7 +9,7 @@ from sklearn.metrics import f1_score
 from model import ResNet
 import torch.backends.cudnn as cudnn
 from torchvision import transforms, datasets
-from datasets import OLIVES, RECOVERY
+from datasets import OLIVES, RECOVERY, RECOVERY_TEST
 
 import torch.nn as nn
 def set_model(opt):

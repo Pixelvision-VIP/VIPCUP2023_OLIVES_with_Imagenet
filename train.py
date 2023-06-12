@@ -64,7 +64,7 @@ def submission_generate(val_loader, model, opt):
     device = opt.device
     out_list = []
     with torch.no_grad():
-        for idx, (image) in (enumerate(val_loader)):
+        for idx, (image,bio_tensor) in (enumerate(val_loader)):
 
             images = image.float().to(device)
 
@@ -75,6 +75,7 @@ def submission_generate(val_loader, model, opt):
 
 
     out_submisison = np.array(out_list)
+    np.save('output',out_submisison)
 
 
 def sample_evaluation(val_loader, model, opt):
@@ -101,7 +102,7 @@ def sample_evaluation(val_loader, model, opt):
     label_array = np.array(label_list)
     out_array = np.array(out_list)
     f = f1_score(label_array,out_array,average='macro')
-
+    print(f)
 
 
 def main():
@@ -122,6 +123,7 @@ def main():
         train_supervised(train_loader, model, criterion, optimizer, epoch, opt)
 
     submission_generate(test_loader, model, opt)
+    sample_evaluation(test_loader, model, opt)
 
     save_file = os.path.join(
         opt.save_folder, 'last.pth')

@@ -43,6 +43,11 @@ python train.py --batch_size 128 --model 'resnet18' --dataset 'OLIVES' --epochs 
 
 Fill this out with the appropriate file path fields for the training and test data to train a model and produce a numpy 
 that can act as a valid submission once the file paths are appended and saved as a csv.
+
+## Baseline Results
+
+With this repository, a ResNet-50 model, and 100 epochs of training, we achieved a macro-averaged F1-Score of .6256.
+
 ### Acknowledgements
 
 This work was done in collaboration with the [Retina Consultants of Texas](https://www.retinaconsultantstexas.com/).
